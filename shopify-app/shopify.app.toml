@@ -2,7 +2,7 @@
 
 client_id = "c4ca0bc28cbb2f206aad15dec373de43"
 name = "Tattoo Pricing"
-application_url = "https://example.com"
+application_url = "https://tattoopricing-wfcj3.ondigitalocean.app"
 embedded = true
 
 [webhooks]
@@ -23,4 +23,4 @@ optional_scopes = [ ]
 use_legacy_install_flow = false
 
 [auth]
-redirect_urls = [ ]
+redirect_urls = [ "https://tattoopricing-wfcj3.ondigitalocean.app/auth/callback" ]
