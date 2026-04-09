@@ -43,7 +43,7 @@ Standalone Shopify embedded app using the official Remix template. **Not part of
 
 ### Key Commands (run from `shopify-app/`)
 - `npm install` — install dependencies
-- `npm run prisma db push` — push Prisma schema changes
-- `npm run prisma generate` — regenerate Prisma client
+- `npx prisma db push` — push Prisma schema changes (or `npm run prisma -- db push`)
+- `npx prisma generate` — regenerate Prisma client (or `npm run prisma -- generate`)
 - `npm run dev` — start dev server (requires Shopify CLI + Partner account)
 - `npm run build` — build for production

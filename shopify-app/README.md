@@ -42,7 +42,8 @@ model Artist {
 
 3. Push the database schema:
    ```bash
-   npm run prisma db push
+   npx prisma db push
+   # or: npm run prisma -- db push
    ```
 
 4. Start the development server (requires Shopify CLI and Partner account):
