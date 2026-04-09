@@ -9,7 +9,7 @@
     "deploy": "npx --yes @shopify/cli@3.93.1 app deploy",
     "config:use": "npx --yes @shopify/cli@3.93.1 app config use",
     "env": "npx --yes @shopify/cli@3.93.1 app env",
-    "start": "npx prisma db push && remix-serve ./build/server/index.js"
+    "start": "npx prisma db push && remix-serve ./build/server/index.js",
     "docker-start": "npm run setup && npm run start",
     "setup": "prisma generate && prisma migrate deploy",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
