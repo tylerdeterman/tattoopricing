@@ -14,7 +14,7 @@ import {
 export default reactExtension('pos.home.tile.render', () => <SmartGridTile />);
 
 // 2. Render the Modal that pops up when the tile is tapped
-reactExtension('pos.home.modal.render', () => <CheckoutModal />);
+export const modal = reactExtension('pos.home.modal.render', () => <CheckoutModal />);
 
 const SmartGridTile = () => {
   const api = useApi();
@@ -39,7 +39,7 @@ const CheckoutModal = () => {
     api.cart.addCustomSale({
       title: `Tattoo - ${artist || 'Artist'}`,
       quantity: 1,
-      price: price,
+      price: parseFloat(price) || 0,
       taxable: true, // Applies your 10.35% store tax
     });
     api.action.dismissModal();
