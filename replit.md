@@ -4,6 +4,8 @@
 
 pnpm workspace monorepo using TypeScript. Each package manages its own dependencies.
 
+Also contains a standalone Shopify Remix app at `shopify-app/` — this is NOT part of the pnpm workspace.
+
 ## Stack
 
 - **Monorepo tool**: pnpm workspaces
@@ -25,3 +27,23 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## Shopify App (`shopify-app/`)
+
+Standalone Shopify embedded app using the official Remix template. **Not part of the pnpm workspace.**
+
+- **Framework**: Remix + Shopify App Bridge
+- **UI**: Shopify Polaris components
+- **Database**: Prisma ORM + SQLite (`prisma/dev.sqlite`)
+- **Package manager**: npm (uses its own `node_modules`)
+
+### Routes
+- `/app/artists` — Admin dashboard (view, add, edit, toggle active status)
+- `/api/artists` — Public JSON API returning active artists
+
+### Key Commands (run from `shopify-app/`)
+- `npm install` — install dependencies
+- `npm run prisma db push` — push Prisma schema changes
+- `npm run prisma generate` — regenerate Prisma client
+- `npm run dev` — start dev server (requires Shopify CLI + Partner account)
+- `npm run build` — build for production
