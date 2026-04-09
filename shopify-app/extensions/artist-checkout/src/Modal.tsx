@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Tile,
   Screen,
   ScrollView,
   Button,
@@ -10,28 +9,8 @@ import {
   reactExtension,
 } from '@shopify/ui-extensions-react/point-of-sale';
 
-// 1. Render the Tile on the POS Home Screen
-export default reactExtension('pos.home.tile.render', () => <SmartGridTile />);
-
-// 2. Render the Modal that pops up when the tile is tapped
-export const modal = reactExtension('pos.home.modal.render', () => <CheckoutModal />);
-
-const SmartGridTile = () => {
-  const api = useApi();
-  return (
-    <Tile
-      title="Add Tattoo"
-      subtitle="Facet & Form"
-      enabled
-      onPress={() => {
-        api.action.presentModal();
-      }}
-    />
-  );
-};
-
 const CheckoutModal = () => {
-  const api = useApi();
+  const api = useApi<'pos.home.modal.render'>();
   const [artist, setArtist] = useState('');
   const [price, setPrice] = useState('');
 
@@ -40,7 +19,7 @@ const CheckoutModal = () => {
       title: `Tattoo - ${artist || 'Artist'}`,
       quantity: 1,
       price: parseFloat(price) || 0,
-      taxable: true, // Applies your 10.35% store tax
+      taxable: true,
     });
     api.action.dismissModal();
   };
@@ -62,11 +41,13 @@ const CheckoutModal = () => {
           onChange={setPrice}
         />
 
-        <Button 
-          title="Add to Cart" 
-          onPress={handleAddToCart} 
+        <Button
+          title="Add to Cart"
+          onPress={handleAddToCart}
         />
       </ScrollView>
     </Screen>
   );
 };
+
+export default reactExtension('pos.home.modal.render', () => <CheckoutModal />);

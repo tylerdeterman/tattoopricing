@@ -7,12 +7,10 @@ uid = "bffb1f63-5705-ab9d-a4ea-64755e49b1231757a2f8"
 handle = "artist-checkout"
 description = "Facet and Form POS checkout tile"
 
-# Pointing the Tile to our React file
 [[extensions.targeting]]
-module = "./src/index.tsx"
+module = "./src/Tile.tsx"
 target = "pos.home.tile.render"
 
-# Pointing the Modal to our React file
 [[extensions.targeting]]
-module = "./src/index.tsx"
+module = "./src/Modal.tsx"
 target = "pos.home.modal.render"
