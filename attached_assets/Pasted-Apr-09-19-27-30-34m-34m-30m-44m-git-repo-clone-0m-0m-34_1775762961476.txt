@@ -1,0 +1,114 @@
+Apr 09 19:27:30  [34m╭────────────[34m[30m[44m git repo clone [0m[0m[34m───────────╼[0m
+Apr 09 19:27:30  [34m│[0m [34m › fetching app source code[0m
+Apr 09 19:27:30  [34m│[0m => Selecting branch "main"
+Apr 09 19:27:30  [34m│[0m => Checking out commit "c9da40de1f6cde34f31e4a3c4b7722aca54018a2"
+Apr 09 19:27:30  [34m│[0m 
+Apr 09 19:27:30  [34m│[0m [32m ✔ cloned repo to [35m/workspace[0m[0m
+Apr 09 19:27:30  [34m╰────────────────────────────────────────╼[0m
+Apr 09 19:27:30  
+Apr 09 19:27:30  [34m › applying source directory [35m/shopify-app[0m[0m
+Apr 09 19:27:30  [32m ✔ using workspace root [35m/workspace/shopify-app[0m[0m
+Apr 09 19:27:30  
+Apr 09 19:27:30  [34m › configuring build-time app environment variables:[0m
+Apr 09 19:27:30       CUSTOM_DB_URL SHOPIFY_API_KEY SHOPIFY_API_SECRET SCOPES SHOPIFY_APP_URL
+Apr 09 19:27:30  
+Apr 09 19:27:30  [34m╭────────────[34m[30m[44m buildpack detection [0m[0m[34m───────────╼[0m
+Apr 09 19:27:30  [34m│[0m [34m › using Ubuntu 22.04 stack[0m
+Apr 09 19:27:32  [34m│[0m Detected the following buildpacks suitable to build your app:
+Apr 09 19:27:32  [34m│[0m 
+Apr 09 19:27:32  [34m│[0m    digitalocean/nodejs-appdetect  v0.1.2    
+Apr 09 19:27:32  [34m│[0m    heroku/nodejs                  v0.338.5  (Node.js)
+Apr 09 19:27:32  [34m│[0m    digitalocean/procfile          v0.1.0    (Procfile)
+Apr 09 19:27:32  [34m│[0m    digitalocean/custom            v0.2.0    (Custom Build Command)
+Apr 09 19:27:32  [34m╰─────────────────────────────────────────────╼[0m
+Apr 09 19:27:32  
+Apr 09 19:27:32  [34m╭────────────[34m[30m[44m build caching [0m[0m[34m───────────╼[0m
+Apr 09 19:27:32  [34m│[0m [34m › checking for cache from a previous build[0m
+Apr 09 19:27:33  [34m│[0m Timer: Analyzer started at 2026-04-09T19:27:33Z
+Apr 09 19:27:33  [34m│[0m Restoring metadata for "heroku/nodejs:shim" from cache
+Apr 09 19:27:33  [34m│[0m Timer: Analyzer ran for 727.071289ms and ended at 2026-04-09T19:27:33Z
+Apr 09 19:27:34  [34m│[0m Timer: Restorer started at 2026-04-09T19:27:34Z
+Apr 09 19:27:34  [34m│[0m Restoring data for "heroku/nodejs:shim" from cache
+Apr 09 19:27:46  [34m│[0m Timer: Restorer ran for 12.045697653s and ended at 2026-04-09T19:27:46Z
+Apr 09 19:27:46  [34m╰───────────────────────────────────────╼[0m
+Apr 09 19:27:46  
+Apr 09 19:27:46  [34m╭────────────[34m[30m[44m app build [0m[0m[34m───────────╼[0m
+Apr 09 19:27:46  [34m│[0m Timer: Builder started at 2026-04-09T19:27:46Z
+Apr 09 19:27:46  [34m│[0m        
+Apr 09 19:27:46  [34m│[0m -----> Creating runtime environment
+Apr 09 19:27:46  [34m│[0m        
+Apr 09 19:27:46  [34m│[0m        NPM_CONFIG_LOGLEVEL=error
+Apr 09 19:27:46  [34m│[0m        NODE_VERBOSE=false
+Apr 09 19:27:46  [34m│[0m        NODE_ENV=
+Apr 09 19:27:46  [34m│[0m        NODE_MODULES_CACHE=true
+Apr 09 19:27:46  [34m│[0m        
+Apr 09 19:27:46  [34m│[0m -----> Installing binaries
+Apr 09 19:27:46  [34m│[0m        engines.node (package.json):   >=20.19 <22 || >=22.12
+Apr 09 19:27:46  [34m│[0m        engines.npm (package.json):    unspecified (use default)
+Apr 09 19:27:46  [34m│[0m        
+Apr 09 19:27:47  [34m│[0m        Resolving node version >=20.19 <22 || >=22.12...
+Apr 09 19:27:47  [34m│[0m        
+Apr 09 19:27:47  [34m│[0m        ! The requested Node.js version is using a wide range (>=20.19 <22 || >=22.12) that can resolve to a Node.js major version
+Apr 09 19:27:47  [34m│[0m          higher than you intended. Limiting the requested range to a major LTS range like `22.x` is recommended.
+Apr 09 19:27:47  [34m│[0m          https://devcenter.heroku.com/articles/nodejs-support#specifying-a-node-js-version
+Apr 09 19:27:47  [34m│[0m        
+Apr 09 19:27:47  [34m│[0m        ! The resolved Node.js version has been limited to the Active LTS (22.22.1) for the requested range of `>=20.19 <22 || >=22.12`.
+Apr 09 19:27:47  [34m│[0m          To opt-out of this behavior, set the following config var: `NODEJS_ALLOW_WIDE_RANGE=true`
+Apr 09 19:27:47  [34m│[0m          https://devcenter.heroku.com/articles/nodejs-support#supported-node-js-versions
+Apr 09 19:27:47  [34m│[0m        
+Apr 09 19:27:47  [34m│[0m        Downloading and installing node 22.22.1...
+Apr 09 19:27:47  [34m│[0m        Validating checksum
+Apr 09 19:27:50  [34m│[0m        Using default npm version: 10.9.4
+Apr 09 19:27:51  [34m│[0m        
+Apr 09 19:27:51  [34m│[0m -----> Restoring cache
+Apr 09 19:27:51  [34m│[0m        - node_modules
+Apr 09 19:27:51  [34m│[0m        
+Apr 09 19:27:51  [34m│[0m -----> Installing dependencies
+Apr 09 19:27:51  [34m│[0m        Installing node modules (package.json)
+Apr 09 19:27:54  [34m│[0m        npm error code ERESOLVE
+Apr 09 19:27:54  [34m│[0m        npm error ERESOLVE unable to resolve dependency tree
+Apr 09 19:27:54  [34m│[0m        npm error
+Apr 09 19:27:54  [34m│[0m        npm error While resolving: app@undefined
+Apr 09 19:27:54  [34m│[0m        npm error Found: react@18.3.1
+Apr 09 19:27:54  [34m│[0m        npm error node_modules/react
+Apr 09 19:27:54  [34m│[0m        npm error   react@"^18.2.0" from the root project
+Apr 09 19:27:54  [34m│[0m        npm error
+Apr 09 19:27:54  [34m│[0m        npm error Could not resolve dependency:
+Apr 09 19:27:54  [34m│[0m        npm error peer react@"^19.2.0" from react-reconciler@0.33.0
+Apr 09 19:27:54  [34m│[0m        npm error node_modules/react-reconciler
+Apr 09 19:27:54  [34m│[0m        npm error   react-reconciler@"^0.33.0" from the root project
+Apr 09 19:27:54  [34m│[0m        npm error
+Apr 09 19:27:54  [34m│[0m        npm error Fix the upstream dependency conflict, or retry
+Apr 09 19:27:54  [34m│[0m        npm error this command with --force or --legacy-peer-deps
+Apr 09 19:27:54  [34m│[0m        npm error to accept an incorrect (and potentially broken) dependency resolution.
+Apr 09 19:27:54  [34m│[0m        npm error
+Apr 09 19:27:54  [34m│[0m        npm error
+Apr 09 19:27:54  [34m│[0m        npm error For a full report see:
+Apr 09 19:27:54  [34m│[0m        npm error /tmp/npmcache.OACW9/_logs/2026-04-09T19_27_51_317Z-eresolve-report.txt
+Apr 09 19:27:54  [34m│[0m        npm notice
+Apr 09 19:27:54  [34m│[0m        npm notice New major version of npm available! 10.9.4 -> 11.12.1
+Apr 09 19:27:54  [34m│[0m        npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.12.1
+Apr 09 19:27:54  [34m│[0m        npm notice To update run: npm install -g npm@11.12.1
+Apr 09 19:27:54  [34m│[0m        npm notice
+Apr 09 19:27:54  [34m│[0m        npm error A complete log of this run can be found in: /tmp/npmcache.OACW9/_logs/2026-04-09T19_27_51_317Z-debug-0.log
+Apr 09 19:27:54  [34m│[0m 
+Apr 09 19:27:54  [34m│[0m -----> Build failed
+Apr 09 19:27:54  [34m│[0m  !     Conflict detected in requested npm dependencies
+Apr 09 19:27:54  [34m│[0m 
+Apr 09 19:27:54  [34m│[0m        An `ERESOLVE` error during installation of npm dependencies means your app contains two or more conflicting
+Apr 09 19:27:54  [34m│[0m        versions of the same dependency. This is typically caused by peer dependency requirements of requested dependencies.
+Apr 09 19:27:54  [34m│[0m        The error above should contain more detail about which dependencies are in conflict. Use tools like `npm info <package-name>`
+Apr 09 19:27:54  [34m│[0m        to get details about a package, including it's peer dependencies.
+Apr 09 19:27:54  [34m│[0m 
+Apr 09 19:27:54  [34m│[0m        The best way to address this issue is to regularly update your dependency versions to prevent conflicts from happening.
+Apr 09 19:27:54  [34m│[0m 
+Apr 09 19:27:54  [34m│[0m        If that is not possible, a temporary solution is to set a config var with `heroku set config npm_config_legacy_peer_deps=true`.
+Apr 09 19:27:54  [34m│[0m        This should be used with caution as ignoring peer dependency conflicts can lead to unexpected runtime errors.
+Apr 09 19:27:54  [34m│[0m     
+Apr 09 19:27:54  [34m│[0m        https://devcenter.heroku.com/articles/nodejs-support
+Apr 09 19:27:54  [34m│[0m 
+Apr 09 19:27:54  [34m│[0m Timer: Builder ran for 8.752345712s and ended at 2026-04-09T19:27:54Z
+Apr 09 19:27:54  [34m│[0m [31;1mERROR: [0mfailed to build: exit status 1
+Apr 09 19:27:55  [34m│[0m 
+Apr 09 19:27:55  [34m│[0m 
+Apr 09 19:27:55  [34m│[0m [31m ✘ build failed[0m
