@@ -11,10 +11,10 @@ import {
   reactExtension,
 } from '@shopify/ui-extensions-react/point-of-sale';
 
-const ARTISTS_URL = 'https://tattoopricing-wfcj3.ondigitalocean.app/api/artists';
-
 const CheckoutModal = () => {
   const api = useApi<'pos.home.modal.render'>();
+  const shopDomain = api.session.currentSession.shopDomain;
+  const artistsUrl = `https://${shopDomain}/apps/tattoopricing/api/artists`;
   const [artists, setArtists] = useState<string[]>([]);
   const [artist, setArtist] = useState('');
   const [price, setPrice] = useState('');
@@ -22,7 +22,7 @@ const CheckoutModal = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(ARTISTS_URL)
+    fetch(artistsUrl)
       .then((r) => {
         if (!r.ok) throw new Error(`Server returned ${r.status}`);
         return r.json();
