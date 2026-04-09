@@ -58,7 +58,6 @@ const CheckoutModal = () => {
 
         <TextField
           label="Total Amount ($)"
-          inputMode="numeric"
           value={price}
           onChange={setPrice}
         />

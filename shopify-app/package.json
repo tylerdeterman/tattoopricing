@@ -6,7 +6,7 @@
     "dev": "npx --yes @shopify/cli@3.93.1 app dev",
     "config:link": "npx --yes @shopify/cli@3.93.1 app config link",
     "generate": "npx --yes @shopify/cli@3.93.1 app generate",
-    "deploy": "npx --yes @shopify/cli@3.93.1 app deploy",
+    "deploy": "npx --yes @shopify/cli@3.93.1 app deploy --allow-updates --allow-deletes",
     "config:use": "npx --yes @shopify/cli@3.93.1 app config use",
     "env": "npx --yes @shopify/cli@3.93.1 app env",
     "start": "prisma migrate deploy && remix-serve ./build/server/index.js",
