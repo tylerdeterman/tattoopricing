@@ -2,18 +2,17 @@ api_version = "2026-01"
 
 [[extensions]]
 type = "ui_extension"
-# Change the merchant-facing name of the extension in locales/en.default.json
-name = "t:name"
+name = "Tattoo Checkout"
 uid = "bffb1f63-5705-ab9d-a4ea-64755e49b1231757a2f8"
 handle = "artist-checkout"
-description = "A preact POS UI extension"
+description = "Facet and Form POS checkout tile"
 
-# module: file that contains your extension’s source code
-# target: location where your extension appears in POS
+# Pointing the Tile to our React file
 [[extensions.targeting]]
-module = "./src/Tile.jsx"
+module = "./src/index.tsx"
 target = "pos.home.tile.render"
 
+# Pointing the Modal to our React file
 [[extensions.targeting]]
-module = "./src/Modal.jsx"
+module = "./src/index.tsx"
 target = "pos.home.modal.render"
