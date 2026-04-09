@@ -23,13 +23,17 @@ const CheckoutModal = () => {
 
   useEffect(() => {
     fetch(ARTISTS_URL)
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`Server returned ${r.status}`);
+        return r.json();
+      })
       .then((data: { name: string }[]) => {
+        if (!Array.isArray(data)) throw new Error('Unexpected response format');
         setArtists(data.map((a) => a.name));
         setLoading(false);
       })
-      .catch(() => {
-        setError('Could not load artists. Check your connection.');
+      .catch((e: unknown) => {
+        setError(`Could not load artists: ${e instanceof Error ? e.message : 'Check your connection.'}`);
         setLoading(false);
       });
   }, []);
@@ -54,7 +58,7 @@ const CheckoutModal = () => {
       });
       api.action.dismissModal();
     } catch (e) {
-      setError(`Could not add to cart: ${String(e)}`);
+      setError(`Could not add to cart: ${e instanceof Error ? e.message : 'Unknown error'}`);
     }
   };
 
