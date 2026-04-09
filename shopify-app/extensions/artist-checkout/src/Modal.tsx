@@ -18,7 +18,7 @@ const CheckoutModal = () => {
     api.cart.addCustomSale({
       title: `Tattoo - ${artist || 'Artist'}`,
       quantity: 1,
-      price: parseFloat(price) || 0,
+      price: parseFloat(price) > 0 ? parseFloat(price).toFixed(2) : "0.00",
       taxable: true,
     });
     api.action.dismissModal();
