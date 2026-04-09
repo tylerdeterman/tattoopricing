@@ -17,8 +17,8 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   try {
     const artists = await prisma.artist.findMany({
       where: { isActive: true },
-      select: { id: true, name: true },
-      orderBy: { name: "asc" },
+      select: { id: true, name: true, isActive: true },
+      orderBy: { id: "asc" },
     });
 
     return json(artists, {
@@ -30,10 +30,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   } catch (error) {
     console.error("[api.artists] Database error:", error);
     return json(
-      {
-        error: "Failed to load artists",
-        message: error instanceof Error ? error.message : String(error),
-      },
+      { error: "Failed to load artists" },
       { status: 500, headers: CORS_HEADERS }
     );
   }
