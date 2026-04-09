@@ -1,6 +1,0 @@
--- CreateTable
-CREATE TABLE "Artist" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "name" TEXT NOT NULL,
-    "isActive" BOOLEAN NOT NULL DEFAULT true
-);
