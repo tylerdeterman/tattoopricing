@@ -37,7 +37,7 @@ const CheckoutModal = () => {
         price: amount.toFixed(2),
         taxable: true,
       });
-      api.action.dismissModal();
+      api.navigation.dismiss();
     } catch (e) {
       setError(`Could not add to cart: ${e instanceof Error ? e.message : 'Unknown error'}`);
     }
