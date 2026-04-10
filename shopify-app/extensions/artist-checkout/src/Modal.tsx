@@ -11,10 +11,10 @@ import {
   reactExtension,
 } from '@shopify/ui-extensions-react/point-of-sale';
 
+const ARTISTS_URL = 'https://tattoopricing-wfcj3.ondigitalocean.app/api/artists';
+
 const CheckoutModal = () => {
   const api = useApi<'pos.home.modal.render'>();
-  const shopDomain = api.session.currentSession.shopDomain;
-  const artistsUrl = `https://${shopDomain}/apps/tattoopricing/api/artists`;
   const [artists, setArtists] = useState<string[]>([]);
   const [artist, setArtist] = useState('');
   const [price, setPrice] = useState('');
@@ -22,20 +22,28 @@ const CheckoutModal = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(artistsUrl)
-      .then((r) => {
-        if (!r.ok) throw new Error(`Server returned ${r.status}`);
-        return r.json();
-      })
-      .then((data: { name: string }[]) => {
+    (async () => {
+      try {
+        const token = await api.session.getSessionToken();
+        const headers: Record<string, string> = {
+          'Content-Type': 'application/json',
+        };
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
+        }
+        const r = await fetch(ARTISTS_URL, { headers });
+        if (!r.ok) throw new Error(`Server returned ${r.status} ${r.statusText}`);
+        const data: unknown = await r.json();
         if (!Array.isArray(data)) throw new Error('Unexpected response format');
-        setArtists(data.map((a) => a.name));
+        setArtists((data as { name: string }[]).map((a) => a.name));
+      } catch (e: unknown) {
+        setError(
+          `Could not load artists: ${e instanceof Error ? e.message : 'Check your connection.'}`
+        );
+      } finally {
         setLoading(false);
-      })
-      .catch((e: unknown) => {
-        setError(`Could not load artists: ${e instanceof Error ? e.message : 'Check your connection.'}`);
-        setLoading(false);
-      });
+      }
+    })();
   }, []);
 
   const handleAddToCart = async () => {
