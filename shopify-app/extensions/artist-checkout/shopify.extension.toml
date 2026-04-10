@@ -7,9 +7,6 @@ uid = "bffb1f63-5705-ab9d-a4ea-64755e49b1231757a2f8"
 handle = "artist-checkout"
 description = "Facet and Form POS checkout tile"
 
-[extensions.capabilities]
-network_access = true
-
 [[extensions.targeting]]
 module = "./src/Tile.tsx"
 target = "pos.home.tile.render"
